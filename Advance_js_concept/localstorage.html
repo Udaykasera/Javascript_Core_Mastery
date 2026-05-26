@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localstorage</title>
+</head>
+<body>
+    <button> White</button>
+    <button>Blue</button>
+    <button>Red</button> 
+
+<h1 id="demo"> </h1>
+
+    <!-- script start -->
+    <script>
+       const bodyElement=  document.querySelector("body");
+       let allBtns = document.querySelectorAll("button");
+
+       allBtns.forEach(
+        (btn) => {
+        btn.addEventListener("click",()=>{
+            localStorage.setItem("COLORTHEME",btn.innerHTML.toLowerCase());
+             setColorThemeBody();
+
+        })
+       });
+
+       let setColorThemeBody = ()=>{
+        let color = localStorage.getItem('COLORTHEME');
+      bodyElement.style.background= color;
+       }
+       setColorThemeBody();
+
+
+    // localStorage.setItem('NAME', 'uday');
+    //     // localStorage.setItem('USERNAME', 'uday kasera');
+    //    document.querySelector("#demo").innerHTML= (localStorage.getItem('USERNAME'));
+</script>
+    
+</body>
+</html>

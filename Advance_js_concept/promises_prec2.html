@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="Identity">
+
+    </p>
+    <script>
+    //     const currect= true;
+    //   let prom=   new Promise(function(resolve, reject){
+    //      if(currect){
+    //      resolve("it is correct");
+    //     }
+    //     else{
+    //         reject("it is rejected");
+    //     }
+    //   })
+    //   console.log(prom)
+
+
+    //   document.querySelector("#Identity").innerHTML= (prom);
+
+    // similar thing but in diffrenct way
+    function promi(complete){
+      return  new Promise(function(resolve, reject){
+        setInterval((complete) => {
+            if(complete){
+         resolve("it is correct");
+        }
+        else{
+            reject("it is rejected");
+        }
+      },4000);
+        
+         
+      document.querySelector("#Identity").innerHTML= (prom);
+    
+    
+  
+      let Onrsolve= (result)=>{
+        console.log(result);
+      }
+       let Onreject= (error)=>{
+        console.log(error);
+      }
+        promi(true).then(Onrsolve).catch(Onreject);}
+
+
+
+    </script>
+</body>
+</html>

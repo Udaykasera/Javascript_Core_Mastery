@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const promisOne  = new Promise(function(resolve,reject){
+            setTimeout(() => {
+                console.log('Async task is complited');
+                resolve()
+            }, 1000);
+        })
+
+        promisOne.then(function(){
+            console.log("prmise consumed");
+        })
+
+       
+
+        // parameter passing in the resoleve()//
+
+ new Promise(function(resolve, reject){
+            setTimeout(() => {
+                resolve({
+                    username: "uday kasera", email : "udaykasera32@gmail.com"
+                })
+            }, 1000);
+        }).then(function(user){
+            console.log(user);
+        })
+ 
+
+
+        new Promise(function(resolve,reject){
+            setTimeout(() => {
+                let error= false;
+                if(!error){
+                    resolve({
+                        username : "uday",password: "123"})
+                    }
+                    else{
+                        reject('error:somthing went wrong')
+                    }
+                }
+            ,1000);
+        }).then((user)=>{
+            console.log(user);
+            return user.username
+        }).then((username)=>{
+            console.log(username);
+        }).catch((error)=>{
+            console.log(error);
+        })
+    </script>
+</body>
+</html>
